@@ -15,5 +15,6 @@ $$
 a = b
 \end{equation}
 $$
+A good idea is to see the [[My Big Brain Redux\|My Big Brain Redux]] note.
 
 ![[Zhu_Lingjiong_port_2923550.pdf]]
