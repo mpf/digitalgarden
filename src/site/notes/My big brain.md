@@ -3,6 +3,8 @@
 ---
 
 
+# Primer
+
 This is a test $\alpha$ or $\beta$ gives you
 $$
 \sigma_A(z) = \inf\set{\sum_ia\in\mathcal A \ |\ x = 1}
