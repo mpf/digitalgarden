@@ -4,7 +4,7 @@
 
 
 > This note describes how to the relative entropy function (also known as Kullback-Leibler (KL) divergence) can be reparameterixed with the soft-max function, thereby enlarging its domain from the simplex into the full space while still preserving convexity.
-
+>
 > See also see [[Notes/Bregman Divergence\|Bregman Divergence]].
 
 ## Relative entropy
@@ -52,17 +52,21 @@ In particular, we use the dual pair of identities:
 $$
 \begin{align}
 D_{H}(p,q) &= D_{H^{*}}(\nabla H(q),\nabla H(p)),\\
-D_{H^{*}}(p^{*},q^{*}) &= D_{H}(\nabla H^{*}(q^{*}),\nabla H^{*}(p^{*})).
+D_{H^{*}}(q^{*},p^{*}) &= D_{H}(\nabla H^{*}(p^{*}),\nabla H^{*}(q^{*})).
 \end{align}
 $$
-Fix a target distribution $q\in\Delta_{\Omega}$ and some appropriate regularization function $\phi:\mathbb{R}^{|\Omega|}\to \mathbb{R}$. Then the following reparameterization is valid:
+Fix a target distribution $q\in\Delta_{\Omega}$ and some appropriate regularization function $\phi:\mathbb{R}^{|\Omega|}\to \mathbb{R}$. It follows from the above identities that
 $$
 \begin{align}
-   \inf\,\{ H_{r}(p,q) + \phi(p) \mid p\in\Delta_{\Omega}\}
-&= \inf\,\{ D_{H}(p,q) + \phi(p) \mid p\in\Delta_{\Omega}\} \\
-&= \inf\,\{ D_{H}(\nabla H^{*}(\bar{p}),q) + \phi(\nabla H^{*}(\bar{p})) \mid \bar{p}\in\mathbb{R}^{|\Omega|}\},\quad[\bar{p}=\nabla H(p)] \\
-&= \inf\,\{ D_{H^{*}}(\bar{q},\bar{p}) + \phi(\nabla H^{*}(\bar{p})) \mid \bar{p}\in\mathbb{R}^{|\Omega|}\},\quad[\bar{q}=\nabla H(q)].
+H_{r}(p,q) &= D_{H}(p,q) \\
+        &= D_{H}(\nabla H^{*}(\bar{p}),q) \quad [\bar{p}:=\nabla H(p)] \\
+        &= D_{H^{*}}(\nabla H(q),\nabla H(\nabla H^{*}(\bar{p})) \\
+        &= D_{H^{*}}(\nabla H(q),\bar{p})
 \end{align}
 $$
-Perhaps usefully, we observe that the function $\bar{p}\mapsto D_{H}(\nabla H^{*}(\bar{p},q))$ is convex. (Though the composed regularization function $\phi \circ\nabla H^{*}$ may not be convex in general.)
+>[!tip] Convexity of $D_{H^{*}}$?
+>I think that in order to establish convexity of the above with respect to $\bar{p}$ we would need to establish convexity of $D_{H^{*}}$ with respect to the second argument.
+
+
+
 
